@@ -1,0 +1,52 @@
+<template>
+    <lightning-card title="DropdownsPubModel">
+        <div class="slds-var-m-around_medium">
+            
+            <lightning-combobox 
+                label="Student year"
+                placeholder="Select the Student year"
+                options={StudentYearData}
+                onchange={YearHandler}>
+            </lightning-combobox>
+
+            <lightning-combobox 
+                label="Student Class"
+                placeholder="Select the Student class"
+                options={StudentClassData}
+                onchange={ClassHandler}>
+            </lightning-combobox>
+            
+
+            <lightning-combobox 
+                label="Student Name"
+                placeholder="Select the Student Name"
+                options={StudentNameData}
+                value={selectedStudent} 
+                onchange={NameHandler}>
+            </lightning-combobox>
+            <button class="slds-button slds-button_neutral" style="margin:15px;" id ="output2" onclick={searchHandler}>search</button>
+            <!-- <template if:true={details}> 
+                <div class="slds-var-m-around_medium">
+                    <template for:each={recordsa} for:item="datab">
+                        <div key={datab.Id} >
+                            <p>Student Name: {datab.Name}</p>
+                        </div>
+                    </template> 
+                    <template for:each={records} for:item="data">
+                        <div key={data.Id} >
+                            <p>Student name:{data.Students__r.Name}</p>
+                            <p>Student Roll NO: {data.StudentRollid__c}</p>
+                            <p>class : {data.Name}</p>
+                            <p>year: {data.Year__c}</p>
+                            <p>Percentage of attendence: {data.Percentage_Of_Attendence__c}</p>
+                        </div>
+                    </template>
+                </div>
+                </template>
+                <template if:false={records}>
+                    <p>No record found with the provided ID</p>
+                </template>
+                 -->
+        </div>
+    </lightning-card>
+</template>

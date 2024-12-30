@@ -1,0 +1,41 @@
+<template>
+    <lightning-card title="Default Workflow item list">
+        <div class="slds-var-m-around_medium">
+            <template if:true={MasterDemandValues.data}>            
+                <lightning-combobox 
+                    label="Master Demand"
+                    value={selectedMasterDemand}
+                    placeholder="select the option"
+                    options={MasterDemandValues.data.values}
+                    onchange={MasterDemandHandler}>
+                </lightning-combobox>
+                <p>Selected option is : <b>{selectedMasterDemand}</b></p>
+            </template>
+            <template if:true={SuperDemandValues.data}>
+                <lightning-combobox 
+                    label="Super Demand"
+                    value={selectedSuperDemand}
+                    placeholder="select the option"
+                    options={SuperDemandValues.data.values}
+                    onchange={SuperDemandHandler}>
+                </lightning-combobox>
+                <p>Selected option is : <b>{selectedSuperDemand}</b></p>
+            </template>
+            <lightning-input type="text" value={Task} label="Task Name" placeholder="enter the task" onchange={InputHandler} ></lightning-input>
+            <p>Selected option is : <b>{Taskvalue}</b></p><br>
+
+            <button class="slds-button slds-button_brand" onclick={CreateRecordHandler}>Create Record</button>
+            <button class="slds-button slds-button_neutral" onclick={GetRecordHandler} ondblclick={doubleclickedGetHandler}>Get Record</button>
+           
+            <template if:true={getRecords}>
+                <lightning-datatable 
+                data={data} 
+                columns={columns} 
+                key-field="id" 
+                onrowselection={handleSelectedRow}>
+            </lightning-datatable>
+            <lightning-button label="Transfer  Records" onclick={transferRecords}></lightning-button>
+        </template>
+        </div>
+    </lightning-card>
+</template>

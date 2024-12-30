@@ -1,0 +1,19 @@
+<template>
+    <div class="slds-box">
+        <b>Map</b>
+        <template if:true={mapMarkers.length}>
+            <lightning-map 
+            map-markers={mapMarkers}
+            markers-title={markersTitle} 
+            onmarkerselect={callMarkerHandler} 
+            selected-marker-value={selectedMarker}>
+            <!-- selectedMarker from the above line allows the parent component to communicate with the map component regarding the selected marker's value. -->
+            </lightning-map>
+
+        </template>
+        <template if:false={mapMarkers.length}>
+            <div>No Account Found</div>
+        </template>
+
+    </div>
+</template>

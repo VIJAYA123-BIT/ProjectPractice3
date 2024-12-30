@@ -1,0 +1,22 @@
+<template>
+    <lightning-card title="life cycle hooks parent card">
+        <div class="slds-var-m-around_medium">
+            <!-- <c-life-cycle-child></c-life-cycle-child> -->
+            <!-- <lightning-input type="text" label ='Enter a name' value={name} onchange={changeHandler}></lightning-input> -->
+        <template if:true={isChildVisible}>
+            <button class="slds-button slds-button_brand" onclick={handleClick}>remove child</button>
+        </template>
+        <template if:false={isChildVisible}>
+            <button class="slds-button slds-button_brand" onclick={handleClick}>show child</button>
+        </template>
+        <template if:true={isChildVisible}>
+            <c-life-cycle-child></c-life-cycle-child>
+        </template>
+    </div>
+    </lightning-card>
+    <!--here it is written for the support for the lwc component of navigateToHome (in that navigate to lwc title)-->
+    <lightning-card title ="Navigate to Target page">
+    <p>welcome to the target page ... by the help of navigate to lwc lightning card in the navigateToHome component</p>
+    </lightning-card>
+
+</template>

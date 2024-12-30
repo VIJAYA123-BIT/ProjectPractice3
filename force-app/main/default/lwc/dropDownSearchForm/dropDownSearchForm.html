@@ -1,0 +1,27 @@
+<template>
+    <lightning-card title="search Result Form">
+        <template if:true={details}> 
+            <div class="slds-var-m-around_medium">
+                <!-- <template for:each={recordsa} for:item="datab">
+                    <div key={datab.Id} >
+                        <p>Student Name: {datab.Name}</p>
+                    </div>
+                </template> -->
+                <template for:each={records} for:item="data">
+                    <div key={data.Id} >
+                        <p>Student name:{data.Students__r.Name}</p>
+                        <p>Student Roll NO: {data.StudentRollid__c}</p>
+                        <p>class : {data.Name}</p>
+                        <p>year: {data.Year__c}</p>
+                        <p>Percentage of attendence: {data.Percentage_Of_Attendence__c}</p>
+                    </div>
+                </template> 
+            </div>
+            </template>
+            <template if:false={records}>
+                <p>No record found with the provided ID</p>
+            </template>
+        
+
+    </lightning-card>
+</template>

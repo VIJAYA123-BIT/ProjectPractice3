@@ -1,0 +1,24 @@
+<template>
+    <div class="slds-col slds-size_1-of-2">
+        <lightning-card   title="BOOK TICKET">
+            <lightning-layout> 
+                <lightning-layout-item  class="slds-col slds-size_1-of-3 slds-var-m-around_medium" >
+                    <lightning-input type="text" placeholder="From" value={From} onchange={FromHandler}></lightning-input>
+                 </lightning-layout-item>
+                <lightning-layout-item  class="slds-col slds-size_1-of-3 slds-var-m-around_medium">
+                    <lightning-input type="text" placeholder="To" value={To} onchange={ToHandler}></lightning-input>
+                </lightning-layout-item>
+            </lightning-layout>
+            <lightning-layout>
+                <lightning-layout-item class="slds-col slds-size_1-of-3 slds-var-m-around_medium">
+                    <lightning-input type="date" placeholder="Date" value={Date} onchange={DateHandler}></lightning-input><br>
+                </lightning-layout-item>
+                <lightning-layout-item class="slds-col slds-size_1-of-3 slds-var-m-around_medium">
+                    <lightning-combobox  name="sortedBy" value={sortedBy} placeholder="Classes" 
+                    options={sortByOptions} onchange={sortHandler}></lightning-combobox>    
+                </lightning-layout-item>
+            </lightning-layout>
+            <lightning-button class="slds-var-m-around_medium" variant="brand" label="search" onclick={searchHandler}></lightning-button>
+        </lightning-card>
+    </div>
+</template>

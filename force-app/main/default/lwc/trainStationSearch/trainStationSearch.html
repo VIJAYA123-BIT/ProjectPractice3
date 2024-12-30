@@ -1,0 +1,40 @@
+<template>
+
+    <div style={backgroundStyle} class="backgroundImg">
+        <!-- <video  class="backgroundImg" control autoplay loop>
+            <source src={videoUrl} type="video/mp4"/>
+        </video> -->
+        <p class="slds-align_absolute-center" style="color:rgb(234, 255, 0);height:5rem"><b> Train Stations</b> 
+            <img src={logoImageUrl} alt="Logo" class="logo"/></p>
+        <!-- <div class="card-container"> -->
+        <div class="slds-col slds-size_1-of-2 slds-var-p-around_medium">
+            <lightning-card title="Train Stations">
+                <lightning-input class="slds-var-m-around_medium" type="text" label="Enter Train no" value={trainNo}
+                    onchange={inputHandler}>
+                </lightning-input>
+                <lightning-button class="slds-var-m-around_medium" variant="brand" label="search"
+                    onclick={searchHandler}></lightning-button>
+
+                <lightning-button class="slds-var-m-around_medium" variant="destructive" label="Clear"
+                    onclick={clearHandler}></lightning-button>
+                <br>
+
+                <div if:true={isLoading}>
+                    <lightning-spinner alternative-text="Loading" variant="brand"></lightning-spinner>
+                </div>
+                <template if:true={istrain}>
+                    <p class="slds-var-m-around_medium">The train name : <strong>{trainName}</strong></p> <br>
+                    <div style="height: 300px;" class="slds-box slds-box_XX-small">
+                        <lightning-datatable key-field="Id" data={TrainData} columns={cols}>
+                        </lightning-datatable>
+                    </div>
+                </template>
+                <template if:false={istrain}>
+                    <p style="color:red" class="slds-var-m-around_medium"> <strong>{errorMsg}</strong></p> <br>
+                </template>
+            </lightning-card>
+        </div>
+    <!-- </div> -->
+    
+    </div>
+</template>

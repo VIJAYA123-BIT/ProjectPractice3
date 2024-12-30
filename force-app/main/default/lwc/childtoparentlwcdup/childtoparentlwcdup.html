@@ -1,0 +1,23 @@
+<template>
+    <lightning-card title="Child Component" class="standard:account">
+        <div class="slds-var-m-around_medium">
+            <template if:true={childfirsttemplate}>
+                <lightning-button variant="brand" label="Increase the Count" onclick={addHandler}></lightning-button>
+            </template>
+
+            <template if:true={childsecondtemplate}>
+                <lightning-input type="text" label="Message" value={message}
+                    onchange={messageHandler}></lightning-input>
+                <lightning-button variant="brand" class="slds-var-m-around_medium" label="Pass Data"
+                    onclick={sendHandler}></lightning-button>
+            </template>
+
+            <template if:true={childthirdtemplate}>
+                <p>please enter the number <b>less than 5</b> because in order to rewrite the apex class code vijaya is requesting</p>
+                <lightning-input type='number' label="Enter the  number of records" value={records}
+                    onchange={recordHandler}></lightning-input>
+                <lightning-button variant="brand" label="fetch records" onclick={fetchHandler}></lightning-button>
+            </template>
+        </div>
+    </lightning-card>
+</template>

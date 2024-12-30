@@ -1,0 +1,34 @@
+<template>
+    <template if:true={fielddata}> 
+        <div class ="slds-p-around_large">
+            <div class="slds-box slds-theme_shade">
+                <lightning-card title="I am child component">
+                    <p>The name of the person is : {fielddata.Name}</p>
+                    <p>The company of the person is :{fielddata.company}</p>
+                </lightning-card>
+            </div>
+        </div>
+    </template>
+        <template if:true={percentdata}>
+            <lightning-card title="I am the child with API property " icon-name="utility:user">
+            <div class="slds-var-m-around_medium">
+                <div style="padding:10px">
+                <p>{percentdata}%</p>
+                <div style={style}></div>
+            </div>
+            </div>
+            </lightning-card>
+        </template>
+        <template if:true={times}>
+            <div id="template2">
+            <lightning-card title="I am the child with API function " icon-name="utility:user">
+            <div class="slds-var-m-around_medium">
+                <div style="padding:10px">
+                <p>{timestamp}</p><br/>
+            </div>
+            </div>
+            </lightning-card>
+        </div>
+        </template>
+    
+</template>

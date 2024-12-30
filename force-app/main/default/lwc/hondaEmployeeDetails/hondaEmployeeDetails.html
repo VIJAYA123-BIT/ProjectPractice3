@@ -1,0 +1,57 @@
+<template>
+    <!-- <div class="slds-grid slds-gutters"> -->
+    <!-- <div class="slds-col slds-size_1-of-3"> -->
+    <lightning-card title="Select the Employee">
+        <div class="slds-var-m-around_medium">
+            <lightning-button variant="brand" label={clickedButtonLabel} onclick={handleClick}></lightning-button>
+            <template if:true={showSurveyYear}>
+                <div class="slds-size_1-of-3">
+                    <lightning-combobox label="Year" placeholder="Year" options={dataHondaEmployeeYear}
+                        value={selectedyear} onchange={YearHandler}></lightning-combobox>
+                    <lightning-combobox label="Company" placeholder="Company" options={dataHondaEmployeeCompany}
+                        value={selectedCompany} onchange={CompanyHandler}></lightning-combobox>
+                    <!-- <lightning-combobox label="Name" placeholder="FirstName" options={dataHondaEmployeeFirstName} value={selectedFirstName} onchange={FirstNameHandler}></lightning-combobox> -->
+                    <lightning-button variant="brand" label="Submit" onclick={SubmitHandler}></lightning-button>
+                    <!-- <lightning-button variant="brand" label="Clear" onclick={ClearHandler}></lightning-button> -->
+                </div>
+            </template>
+        </div>
+    </lightning-card>
+    <br>
+    <template if:true={EmployeeDetails}>
+        <lightning-card title="Employee Details">
+            <lightning-layout>
+                <lightning-layout-item utility:icon='search' size="4" padding="around-small">
+                    <lightning-input type="text" label="Search" onkeyup={filterHandler}></lightning-input>
+                </lightning-layout-item>
+            </lightning-layout>
+            <!-- <lightning-layout >
+                <lightning-input disabled={isObjectSelectionRO}  required={isRequired} label="Select Object" type="search"
+                value={selectedObjectReference} onchange={handleInputChange}  onblur={handleOnBlur}>
+            </lightning-input>
+              
+            </lightning-layout> -->
+            <template if:true={EnteredDetails}>
+                Employee details are shown after the selection of values from the combobox
+            </template>
+            <div class=" slds-grid slds-wrap">
+                <template if:false={EnteredDetails} for:each={filteredData} for:item="item" for:index="index">
+                    <div class="custom box slds-col slds-box slds-p-around_medium  slds-size_1-of-2" key={item.id}>
+                        <!-- <div class=" slds-box-body slds-tile__content slds-truncate"> -->
+                        <strong>Name : </strong> {item.Name} <br>
+                        <strong>Company: </strong>{item.companyName__c}<br>
+                        <strong>Joining Year : </strong>{item.Year__c}<br>
+                        <strong>Email : </strong>{item.Email__c}<br>
+                        <strong>Job Title : </strong>{item.JobTitle__c}<br>
+                        <strong>Last Name: </strong>{item.LastName__c}<br>
+                        <!-- <hr> -->
+                        <!-- </div> -->
+                    </div>
+
+                </template>
+            </div>
+        </lightning-card>
+    </template>
+    <!-- </div> -->
+    <!-- </div> -->
+</template>

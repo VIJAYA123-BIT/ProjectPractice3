@@ -1,0 +1,40 @@
+<template>
+    <lightning-card title="pdfGeneration">
+        <div class="container" style="padding:16px">
+            <div style="margin-bottom:50px;">
+                <img src={imageUrl} style ="height:80px; width:120px; padding:16px"/>
+                <div style="display:inline-block; float:right">
+                    <div>Invoice # :{invoiceData.invoiceNo}</div>
+                    <div>Created # :{invoiceData.invoiceCreated}</div>
+                    <div>Due # :{invoiceData.invoiceDue}</div>
+                </div>
+            </div>
+            <div>
+                <div style="display:inline-block">
+                    <div>{invoiceData.companyName}</div>
+                    <div>{invoiceData.address1}</div>
+                    <div>{invoiceData.address2}</div>
+                </div>
+                <div style="display:inline-block; float:right; text-align:right">
+                    <div> {clientData.client}</div>
+                    <div> {clientData.username}</div>
+                    <div> {clientData.email}</div>
+                </div>
+            </div>
+            <div style="background: #eee; margin:16px 0px; padding:8px">
+                <div style="display:inline-block;"  ><strong>Services </strong></div>
+                <div style="display:inline-block; float:right;"><strong>Amount </strong></div>
+            </div>
+            <template iterator:service={services}>
+                <div key={service.value.name} style="padding:8px">
+                    <div style="display:inline-block;">{service.value.name}</div>
+                    <div style="display:inline-block; float:right;">{service.value.amount}</div>
+                </div>
+                <div if:true ={service.last} key={service.value.name} style="padding:8px;">
+                    <div style="display:inline-block; float:right;"><strong>Total Amount :${totalAmount} </strong></div>
+                </div>
+            </template>
+        </div>
+        <button class="slds-button slds-button_brand" onclick={pdfHandler}>generate pdf</button>
+    </lightning-card>
+</template>

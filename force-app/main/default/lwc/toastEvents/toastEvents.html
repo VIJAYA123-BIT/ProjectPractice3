@@ -1,0 +1,19 @@
+<template>
+    <div class="slds-notify_container slds-is-relative" if:true={showComponent}>            
+        <div class="slds-notify slds-notify_toast slds-theme_error" >              
+            <div>
+                <lightning-icon  icon-name="utility:error" alternative-text="Warning"
+                        title="Warning" size="small"></lightning-icon>
+            </div>  
+            <div class="slds-notify__content" style="position:relative;left: 15px;" >
+                <h2 class="slds-text-heading_small ">{textValue}</h2>
+            </div>          
+            <div>
+                <button class="slds-button slds-button_icon  slds-float_right" style="position:relative;left: 100px;" onclick={hideComponent}>
+                <lightning-icon  icon-name="utility:close" alternative-text="Cancel and close"
+                    title="Cancel and close" size="small"></lightning-icon>
+                </button>
+            </div>                
+        </div>  
+    </div>
+</template>

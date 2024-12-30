@@ -1,0 +1,30 @@
+<template>
+    <lightning-card title="Employee Survey app ">
+        <div class ="slds-p-around_large">
+            <div class="slds-box slds-theme_shade">
+                <div class="slds-var-m-around_medium" >
+                    <p>Feedback form </p>
+                    <button class="slds-button slds-button_neutral"  style="margin:15px;" id ="output" onclick={signUpHandler}>signUp</button>
+                    <button class="slds-button slds-button_neutral"  style="margin:15px;" id ="output1" onclick={signInHandler}>signIn</button>
+                    <template if:true={signIn}>
+                        <lightning-input type="name" label="EmployeeName" value={name} onchange={inputHandlera}></lightning-input>
+                        <!-- <lightning-input type="number" label="EmployeeID" value={number} onchange={inputHandlerb}></lightning-input> -->
+                        <button class="slds-button slds-button_neutral"  style="margin:15px;" id ="output2" onclick={submitHandler}>Submit</button>
+                        <template if:true={details}> 
+                            <div class="slds-var-m-around_medium">
+                                <template for:each={records} for:item="data">
+                                    <div key={data.Id}>
+                                        <p>EmpName: {data.Name}</p>
+                                        <p>EmpNumber: {data.EmployeeId__c}</p>
+                                        <p>Emailid : {data.Email__c}</p>
+                                        <p>PhoneNo: {data.Phone_Number__c}</p>
+                                    </div>
+                                </template>
+                            </div>
+                            </template>
+                    </template>
+                </div>
+            </div>
+        </div>
+    </lightning-card>
+</template>

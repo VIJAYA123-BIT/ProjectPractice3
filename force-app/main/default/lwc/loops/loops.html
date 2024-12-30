@@ -1,0 +1,17 @@
+<template>
+    <lightning-card title="loops">
+        <div class="slds-grid slds-wrap">
+            <template for:each={numbers} for:item="inn" for:index="index">
+                <div key={inn} class="slds-col">
+                    <div class="slds-box">{inn}</div>
+                </div>
+            </template>
+        </div>
+        <p> through iterator is show below</p>
+        <template iterator:number={numbers}>
+            <div key={number.value.id}>{number.value}</div>
+        </template>
+
+    </lightning-card>
+    
+</template>

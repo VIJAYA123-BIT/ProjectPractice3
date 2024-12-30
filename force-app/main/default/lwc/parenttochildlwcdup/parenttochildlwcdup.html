@@ -1,0 +1,23 @@
+<template>
+    <lightning-card title="parent component">
+        <template if:true={parentfirstTemplate}>
+            <p class="slds-var-m-around_medium">The increased count is {countvalue}</p>
+            <c-childtoparentlwcdup onincrease={incrementhandler} childsecondtemplate={sectemp} childthirdtemplate={thitemp}></c-childtoparentlwcdup>
+        </template>
+        <p>--------------------------------------------------------------------</p>
+        <template if:true={parentsecondTemplate}>
+            <p class="slds-var-m-around_medium"> the value recieved is {valuereceived}</p>
+            <c-childtoparentlwcdup onmessager={receiverhandler} childfirsttemplate={firtemp} childthirdtemplate={thitemp}></c-childtoparentlwcdup>
+        </template>
+        <p>--------------------------------------------------------------------</p>
+        <template if:true={parentthirdTemplate}>
+            <c-childtoparentlwcdup onrecords={fetchrecordshandler} childfirsttemplate={firtemp} childsecondtemplate={sectemp}></c-childtoparentlwcdup>
+            <p class="slds-var-m-around_medium"> the records count is {recordsreceived}</p>
+            <template  for:each={accountlist} for:item="record" >
+                <div key={record.Id}>
+                    <li class="slds-var-m-around_medium">Name - {record.Name}</li>
+                </div>
+            </template>
+        </template>
+    </lightning-card>
+</template>

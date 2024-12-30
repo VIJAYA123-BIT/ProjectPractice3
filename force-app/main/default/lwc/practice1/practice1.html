@@ -1,0 +1,39 @@
+<template>
+    <lightning-card>
+        <div style="margin:20px">
+    <h1> hello world...</h1>
+    <p>My name is {fullname}</p>
+    <div >My old friend name is {obj.name} and her fantasy is {obj.fantasy}...</div>
+    </div>
+    </lightning-card>
+    <lightning-card title="two way data  binding">
+        <div class="slds-var-m-around_medium">
+            <lightning-input onkeyup ={getTitle} type ="text" label ="Enter the task"></lightning-input>
+            <br>
+            <p>My favourite hero is an indian actor and the name is  ... {title}</p>
+        </div>
+    </lightning-card>
+    <lightning-card title="Using Tracking">
+        <div class="slds-var-m-around_medium ">
+            <lightning-input type="text" label ='enter city name' onkeyup={trackHandler}></lightning-input>
+            <div>{address.city} is my city in India...</div>
+            <div>{userList} are the alphabets   </div>
+        </div>
+    </lightning-card>
+    <lightning-card title="getters usage">
+        <div class="slds-var-m-around_medium ">
+        <!-- <lightning-input type="text" label ='enter city name' onkeyup={trackHandler1}></lightning-input>  -->
+            <div>First username is {firstUser}</div>
+            <div>the multiplication of two numbers is {multiply}</div>
+        </div>
+    </lightning-card>
+    <lightning-card title="conditional rendering usage">
+        <div class="slds-var-m-around_medium ">
+        <!-- <lightning-input type="text" label ='enter city name' onkeyup={trackHandler1}></lightning-input>  -->
+            <div>Here we are trying to get the word or stmt by clicking the button</div>
+            <div>the multiplication of two numbers is {multiply}</div>
+        </div>
+    </lightning-card>
+
+
+</template>

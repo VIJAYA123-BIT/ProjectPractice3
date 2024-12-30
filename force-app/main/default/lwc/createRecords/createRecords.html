@@ -1,0 +1,21 @@
+<template>
+    <lightning-card title="Record sending to sobject">
+        <div class="slds-var-m-around_medium">
+            <lightning-input type="text" label="Record Name" onchange={RecordName} value={name} ></lightning-input>
+            <lightning-input type="text" label="Subject" onchange={SubjectName} value={subject}></lightning-input>
+            <br>
+            <button onclick={addHandler}  class="slds-button slds-button_brand">Add</button>
+            <button onclick={FetchHandler}  class="slds-button slds-button_brand">Fetch</button>
+            <template if:true={recordsRecived}>
+                <template  for:each ={recordList} for:item = "item" for:index="index">
+                    <div key ={item.id} > 
+                        <strong>Name: </strong> {item.Name} <br>
+                        <strong>Subject: </strong>{item.Subject__c}
+                        <hr />
+                    </div>
+                </template> 
+            </template>
+        </div>
+    </lightning-card>
+    
+</template>

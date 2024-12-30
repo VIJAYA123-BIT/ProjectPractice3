@@ -1,0 +1,15 @@
+
+  <template>
+      <lightning-card variant="Narrow" title="Heroes from getter setter" icon-name="standard:account">
+          <div class="slds-var-m-around_medium">
+              <template if:true={filteredHeroes} for:each={filteredHeroes} for:item="hero">
+                  <li key={hero.id}>{hero.name}</li>
+              </template>
+              <template for:each={numbers} for:item="num" for:index="numb">
+                <p key={num}>{num}</p>
+              </template>
+          </div>
+          <lightning-button class="slds-var-m-around_medium" variant="brand" label="Show Message" onclick={showMessage}></lightning-button>
+
+      </lightning-card>
+  </template>

@@ -1,0 +1,76 @@
+<template>
+    <lightning-card title="Select the Employee">
+        <div class="slds-var-m-around_medium">
+            <lightning-button variant="brand" label={clickedButtonLabel} onclick={handleClick}></lightning-button>
+            <template if:true={showSurveyYear}>
+                <div class="slds-size_1-of-3">
+                    <lightning-combobox label="Year" placeholder="Year" options={dataHondaEmployeeYear}
+                        value={selectedyear} onchange={YearHandler}></lightning-combobox>
+                    <lightning-combobox label="Company" placeholder="Company" options={dataHondaEmployeeCompany}
+                        value={selectedCompany} onchange={CompanyHandler}></lightning-combobox>
+                    <lightning-button variant="brand" label="Submit" onclick={SubmitHandler}></lightning-button>
+                    <lightning-button variant="destructive" class="slds-m-around_medium" label="Clear All"
+                        onclick={ClearHandler}></lightning-button>
+                    <lightning-button variant="brand-outline" class="slds-around_medium" label="Designations"
+                        onclick={DesignationHandler}></lightning-button>
+                </div>
+            </template>
+        </div>
+    </lightning-card>
+    <br>
+    <template if:true={EmployeeDetails}>
+        <lightning-card title="Employee Details">
+            <template if:true={EnteredDetails}>
+                Employee details are shown after the selection of values from the combobox
+            </template>
+            <lightning-layout if:false={EnteredDetails}>
+                <lightning-layout-item utility:icon='search' size="4" padding="around-small">
+                    <lightning-input type="text" icon-name="utility:search" label="Search"
+                        onkeyup={filterHandler}></lightning-input>
+                </lightning-layout-item>
+            </lightning-layout>
+            <div class=" slds-grid slds-wrap">
+                <template if:false={EnteredDetails} for:each={filteredData} for:item="item" for:index="index">
+                    <div class="custom box slds-col slds-box slds-p-around_medium  slds-size_1-of-2" key={item.id}>
+                        <strong>Name : </strong> {item.Name} <br>
+                        <strong>Company: </strong>{item.companyName__c}<br>
+                        <strong>Joining Year : </strong>{item.Year__c}<br>
+                        <strong>Email : </strong>{item.Email__c}<br>
+                        <strong>Job Title : </strong>{item.JobTitle__c}<br>
+                        <strong>Last Name: </strong>{item.LastName__c}<br>
+                    </div>
+                </template>
+            </div>
+        </lightning-card>
+    </template>
+    <template if:true={DesignationDetails}>
+        <section role="dialog" tabindex="-1" aria-modal="true" aria-labelledby="modal-heading-01"
+            class="slds-modal slds-fade-in-open slds-modal_small">
+            <div class="slds-modal__container">
+                <div class="slds-modal__header">
+                    <h1  class="slds-modal__title slds-hyphenate">Designations</h1>
+                </div>
+                <div class="slds-modal__content slds-p-around_medium"></div>
+                <div class="slds-tabs_default slds-tabs_medium">
+                    <ul class="slds-tabs_default__nav" role="tablist">
+                      <li class="slds-tabs_default__item slds-is-active" title="Item One" role="presentation">
+                        <a class="slds-tabs_default__link" href="#" role="tab" tabindex="0" aria-selected="true" aria-controls="tab-default-1" id="tab-default-1__item">Item One</a>
+                      </li>
+                      
+                    </ul>
+                    <div id="tab-default-1" class="slds-tabs_default__content slds-show" role="tabpanel" aria-labelledby="tab-default-1__item">Item One Content</div>
+                   </div>
+            </div>
+
+                <!-- 
+                    <p>consequat ipsum magna exercitation reprehenderit magna. Tempor cupidatat consequat elit dolor
+                        adipisicing.</p>
+                 -->
+                <div class="slds-modal__footer">
+                    <button class="slds-button slds-button_neutral" onclick={CancelDesignationDetails}>Cancel</button>
+                </div>
+            </div>
+        </section>
+        <div class="slds-backdrop slds-backdrop_open" role="presentation"></div>
+    </template>
+</template>

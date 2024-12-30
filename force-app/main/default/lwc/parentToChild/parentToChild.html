@@ -1,0 +1,28 @@
+<template>
+    <!-- this component is placed lds page in salesforce org... -->
+    <lightning-card title="I am parent component">
+        <c-child-to-parent fielddata={mydata}></c-child-to-parent>
+
+    </lightning-card>
+    <template if:true={percenta}>
+        <lightning-card title="I am the parent with API property " icon-name="utility:user">
+        <div class="slds-var-m-around_medium">
+            <div style="padding:10px">
+                <lightning-input type="number" value={percentage} onchange={handleonchange}></lightning-input>
+          <br/>
+          <c-child-to-parent percentdata={percentage}></c-child-to-parent>
+        </div>
+    </div> 
+    </lightning-card>
+    </template>
+    <template if:true={time}>
+        <lightning-card title="I am the parent with API function " icon-name="utility:user">
+        <div class="slds-var-m-around_medium">
+            <lightning-button label="Refresh" onclick={handlebuttonRefresh}></lightning-button>
+            <br/>
+            <c-child-to-parent times=true></c-child-to-parent>
+    </div>
+    </lightning-card>
+    </template>
+    
+</template>

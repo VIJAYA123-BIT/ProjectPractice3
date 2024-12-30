@@ -1,0 +1,6 @@
+<template>
+    <lightning-card title="I am Publisher Component">
+        <lightning-input class="slds-p-arount_medium" label="Enter text(I will be visible in subscriber component )" value={text} onchange={inputHandler}></lightning-input>
+        <lightning-button class="slds-p-around_medium" label="Send" variant="Brand" onclick={publishEvent}></lightning-button>
+    </lightning-card>
+</template>

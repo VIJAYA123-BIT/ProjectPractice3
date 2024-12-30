@@ -1,0 +1,47 @@
+<template>
+    <lightning-card title="SignUp form">
+        <div class ="slds-p-around_large">
+            <div class="slds-box slds-theme_shade">
+        <div  class="slds-var-m-around_medium">
+            <lightning-input type="text" label="Employeename" value={name} onchange={inputHandlera}></lightning-input>
+            <lightning-input type="number" label="EmployeeID" value={number} onchange={inputHandlerb}></lightning-input>
+            <lightning-input type="text" label="Email" value={Email} onchange={inputHandlerc}></lightning-input>
+            <lightning-input type="number" label="PhoneNo" value={PhoneNo} onchange={inputHandlerd}></lightning-input>
+                <div>Level of Proficiency</div>
+            <b>Communication skills</b>
+            <template  for:each={options} for:item="option">
+                <div key={option.value}>
+                    <lightning-input if:true={feedback} type="checkbox" label={option.label} value={option.value} checked={option.selected} onchange={handleChange}></lightning-input>
+                </div>
+            </template>
+            <b>Way of Teaching</b>
+            <template  for:each={optionsA} for:item="option">
+                <div key={option.value}>
+                    <lightning-input  type="checkbox" label={option.label} value={option.value} checked={option.selected} onchange={handleChange}></lightning-input>
+                </div>
+            </template>
+        </div> 
+        <button class="slds-var-m-around_medium slds-button slds-button_neutral"   onclick={SubmitHandler}>Submit</button>
+        <button class="slds-var-m-around_medium slds-button  slds-button_neutral"   onclick={showHandler} >show Details</button>
+       <template if:true={details}> 
+        <div class="slds-var-m-around_medium">
+            <p>EmpName: {submittedName}</p>
+            <p>EmpNumber: {submittedNumber}</p>
+            <p>Emailid : {submittedEmail}</p>
+            <p>PhoneNo: {submittedPhoneNo}</p> 
+        </div>
+        </template>
+        <button class="slds-var-m-around_medium slds-button slds-button_neutral"   onclick={recordHandler}>latest record</button>
+        <template for:each={recordList} for:item="record">
+                <div class="slds-var-m-around_medium" key={record.Id}>
+                    <p>EmpName: {record.Name}</p>
+                    <p>EmpNumber: {record.EmployeeId__c}</p>
+                    <p>Emailid : {record.Email__c}</p>
+                    <p>PhoneNo: {record.Phone_Number__c}</p> 
+                </div>
+
+        </template>
+        </div>
+        </div>
+    </lightning-card>
+</template>

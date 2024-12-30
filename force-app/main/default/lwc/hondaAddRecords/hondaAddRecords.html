@@ -1,0 +1,12 @@
+<template>
+    <lightning-card title="Record sending to sobject">
+        <div class="custom box slds-col slds-box slds-var-m-around_medium  slds-size_1-of-2">
+            <lightning-input type="text" name="year" label="Year" onchange={HandleChangeYear} value={RecordYear} ></lightning-input>
+            <lightning-input type="text" name="Company" label="Company" onchange={HandleChangeCompany} value={RecordCompany}></lightning-input>
+            <lightning-input type="text" name="Name" label="Name" onchange={HandleChangeName} value={RecordName}></lightning-input>
+            
+            <button onclick={addHandler}  class="slds-button slds-button_brand">Add</button>
+        </div>
+    </lightning-card>
+    
+</template>

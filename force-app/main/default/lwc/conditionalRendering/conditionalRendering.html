@@ -1,0 +1,105 @@
+<template>
+    <lightning-card title="Conditional rendering">
+        <div  class="slds-var-m-around_medium">
+            <button class="slds-button slds-button_brand" onclick={newButton} ondblclick={closeButton}  >show data</button>
+            <template if:true={isVisible}>
+            <div>Welcome to the learning course of the lwc components</div>
+           </template>
+           <template if:true={doubleClick}>
+               <div>you clicked twice</div>
+           </template>    
+        </div>
+    </lightning-card>
+
+
+    <lightning-card title="show and hide the textt...">
+        <lightning-button style="margin: 20px;" onclick={handleClick} label={clickedButtonLabel} ></lightning-button>
+        <template if:true={boolVisible}>
+            <div style="margin: 20px;">Testing Hide and Show</div>
+        </template>
+    </lightning-card>
+
+
+    <lightning-card title="spelling check">
+        <div class="slds-var-m-around_medium">
+            <lightning-input typt="text" label="type hello" onkeyup={changeHandler}></lightning-input>
+           <template if:true={helloMethod}>
+            <div>Hurray!! Correct spelling </div>
+           </template>
+        </div>
+    </lightning-card>
+
+    <lightning-card title="if:true and if:false getter demo">
+        <div class="slds-var-p-around_medium">
+            <lightning-input label="Country  Name" value={country} onchange={changeIfElse}></lightning-input>
+            <template if:true={isCountryIndia}>yes you are in India</template>
+            <template if:false={isCountryIndia}>No you are not in India</template>
+        </div>
+    </lightning-card>
+
+    <lightning-card title="lwc:if and lwc:else getter demo">
+        <div class="slds-var-p-around_medium">
+            <lightning-input label="Country  Name" value={newcountry} onchange={changeIfElse1}></lightning-input>
+            <template lwc:if ={isCountryAustralia}>yes you are in Australia</template>
+            <template lwc:elseif ={isCountryCanada}>yes you are in Canada</template>
+            <template lwc:else> No you are not in Australia and Canada</template>
+        </div>
+
+    </lightning-card>
+    <lightning-card title="for:each looppp">
+        <div class="slds-var-p-around_medium">
+        <template for:each={carList} for:item="car">
+            <div key={carr}>{car}</div>
+            <!-- <ul key={car} class="slds-has-dividers_around-space">
+                <li class="slds-item">{car}</li> <br> <br>
+            </ul> -->
+
+        </template>
+        </div>
+    </lightning-card>
+
+    <lightning-card title="Badges">
+        <div class="slds-var-p-around_medium">
+            <span class="slds-badge slds-theme_success">Success label</span>
+            <span class="slds-badge"> Badge Label</span>
+
+        </div>
+    </lightning-card>
+
+
+    <lightning-card title="iterator loopp">
+      <div class="slds-var-p-around_medium" >
+          <template iterator:ceo={ceolist} >
+              <div key={ceo.value.id}>
+              <ul class="slds-has-dividers_around-space">
+                   <template if:true ={ceo.first}>  <!--here first is an attribute to display on the top -->
+                      <div class="slds-box slds-theme_shade">
+                          <strong>
+                              List of top companies and there COE's
+                          </strong>
+                      </div>
+                  </template>
+                  <li  class="slds-item">
+                      <strong>{ceo.value.company} </strong>
+                      --- {ceo.value.name}
+                     
+                  </li>
+                  <br>
+                  <template if:true ={ceo.last}>  <!--here last is an attribute to display on the top -->
+                    <div class="slds-box slds-theme_shade">
+                        <strong>
+                            Thanks for reading the list
+                        </strong>
+                    </div>
+                </template>
+                  
+              </ul>
+            </div>
+
+          </template>
+      </div>
+
+
+    </lightning-card>
+    
+</template>

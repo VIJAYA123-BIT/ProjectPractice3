@@ -1,0 +1,9 @@
+<template>
+    <lightning-card title="parent 2 child lwc" icon-name="standard:account">
+        <p class="slds-var-m-around_medium">recieved the count value from the child component</p>
+        <p class="slds-text-align_center">Count is {countValue}</p>
+    <c-child2parentlwc onsubtract={handleDecrement} onadd={handleIncrement}></c-child2parentlwc>
+
+
+    </lightning-card>
+    </template>
