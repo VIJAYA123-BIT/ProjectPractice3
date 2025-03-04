@@ -1,0 +1,10 @@
+<template>
+    <lightning-card title="datatable values">
+        <lightning-datatable
+        key-field="Id"
+            data={accounts}
+            columns={columns}>
+        </lightning-datatable>
+        <div class="slds-var-m-around_medium">[{firstcolumn}]</div>
+    </lightning-card>
+</template>

@@ -1,0 +1,13 @@
+<template>
+    <lightning-card title="Second Component">
+        <div class="slds-var-m-around_medium">
+            <template for:each={flowvalues} for:item="values" for:index="index">
+                <div key={values.Id}>
+                    <div class="slds-var-m-around_medium" key={values.Id} onclick={handleClick} data-index={index}>
+                        {values.Label}
+                    </div>
+                </div>
+            </template>
+        </div>
+    </lightning-card>
+</template>

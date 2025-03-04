@@ -1,0 +1,18 @@
+<template>
+    <div class="slds-col slds-size_1-of-2">
+        <lightning-card title="metadata api">
+            <div class="slds-var-m-around_medium slds-box slds-theme_shade">
+                <lightning-input type="Search" onchange={inputHandler} label="enter text" value={userInput}>
+                </lightning-input>
+                <template for:each={picklistValues} for:item="uservalue" for:index="index">
+                    <div class="hover-item" key={uservalue.Id}>
+                        <div class="slds-var-m-around_medium" key={uservalue.Id} onclick={handleClick}
+                            data-index={index}>
+                            {uservalue} 
+                        </div>
+                    </div>
+                </template>
+            </div>
+        </lightning-card>
+    </div>
+</template>
